@@ -25,14 +25,14 @@ def submit():
     # Fermer l'instance précédente du serveur proxy si elle existe
     if proxy_instance:
         proxy_instance.server_socket.close()
+        proxy_instance = None
 
     # Lancer une nouvelle instance du serveur proxy avec les nouveaux paramètres
-    proxy_instance = ProxyServer('127.0.0.1', 8080, banner_text, filter_list)
+    proxy_instance = ProxyServer('127.0.0.1', 9000, banner_text, filter_list_textarea)
     threading.Thread(target=proxy_instance.start).start()
 
     # Faites quelque chose avec les données, par exemple imprimez-les pour le moment
     print(f"Banner Text: {banner_text}")
-    print(f"Filter List: {filter_list}")
     print(f"Filter List Textarea: {filter_list_textarea}")
     print(f"No Filter: {no_filter}")
 
