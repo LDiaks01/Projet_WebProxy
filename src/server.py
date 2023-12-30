@@ -26,6 +26,7 @@ def submit():
     if proxy_instance:
         proxy_instance.server_socket.close()
         proxy_instance = None
+        # test
 
     # Lancer une nouvelle instance du serveur proxy avec les nouveaux paramètres
     proxy_instance = ProxyServer('127.0.0.1', 9000, banner_text, filter_list_textarea)
