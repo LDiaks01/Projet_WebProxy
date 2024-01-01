@@ -56,12 +56,12 @@ class ProxyServer:
                 # Créer un socket vers le serveur distant
                 remote_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 if is_https_request:
-                    
+
                     ssl_client = ssl.wrap_socket(client_socket, server_side=True, certfile='proxy_cert.pem', keyfile='proxy_key.pem', ssl_version=ssl.PROTOCOL_TLS)
 
                     # Lire la requête du client
                     request_data = ssl_client.recv(4096)
-                    print(request_data)
+                    
                     # Modifier la requête si nécessaire
                     modified_request = self.modify_request(request_data)
 
@@ -208,3 +208,4 @@ class ProxyServer:
                 response_data = re.sub(rb'\b' + re.escape(word.encode()) + rb'\b', b'censored By Proxy', response_data, flags=re.IGNORECASE)
         
         return response_data
+

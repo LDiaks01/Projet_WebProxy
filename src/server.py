@@ -21,7 +21,9 @@ def submit():
     
     # Fermer l'instance précédente du serveur proxy si elle existe
     if proxy_instance:
+        print(proxy_instance.server_socket, 'there')
         proxy_instance.server_socket.close()
+        proxy_instance.server_socket = None  
         proxy_instance = None
 
     # Lancer une nouvelle instance du serveur proxy avec les nouveaux paramètres
