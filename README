@@ -1,0 +1,6 @@
+Avant de tester avec Firefox, voici quelques étapes:
+1- configurer le serveur proxy sur Firefox
+2- Désactiver le HTTPS First, l'auto completion de la bare d'adresses pour éviter que les requetes HTTP soient traduites en HTTPS
+
+3-Le fichier de config est pour l'ip, le port et la liste des ressources à restreindre
+
