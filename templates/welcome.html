@@ -54,10 +54,18 @@
 <body>
 
     <h1>Page d'Accueil du Serveur Proxy</h1>
+    
+    {% if host and port %}
+    <p>Le serveur proxy tourne sur l'adresse IP : {{ host }} et le port : {{ port }}</p>
 
+    {% endif %}
     <form id="proxyForm" action="/submit" method="POST">
         <label for="bannerText">Banner à insérer sur les titres de pages webs :</label>
         <input type="text" id="bannerText" name="bannerText" placeholder="Ex: Mon Super Banner">
+        <br>
+
+        <label for="proxyMessage">Ligne à Inserer en Haut des Pages pour indiquer la présence du proxy  :</label>
+        <input type="text" id="proxyMessage" name="proxyMessage" placeholder="Ex: Mon Super Banner">
         <br>
 
 
