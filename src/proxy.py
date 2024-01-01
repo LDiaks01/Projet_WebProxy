@@ -121,7 +121,7 @@ class ProxyServer:
 
         return modified_request
     
-
+    #used for https verb
     def forward_data(self, source, destination):
         data = b""
         while True:
@@ -131,7 +131,6 @@ class ProxyServer:
                 break
             destination.sendall(data)
         
-        print(data)
             
             
     def extract_host_header(self, request_data):
@@ -187,6 +186,7 @@ class ProxyServer:
 
         return False
 
+    # pas utilisée, mais permet de bloquer toutes les images
     def is_image_request(self, request):
         # Liste des extensions d'image courantes
         image_extensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.svg', '.webp', '.ico']
@@ -200,7 +200,7 @@ class ProxyServer:
                 return True
 
         return False
-    
+    # remplace les mots clés par censored by proxy
     def censor_words(self, response_data, censor_words):
         if censor_words:
             for word in censor_words:
